@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <left>
+      <VBox alignment="CENTER" prefHeight="368.0" prefWidth="180.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="# Nodes" />
+            <TextField fx:id="nodesNumber" onAction="#addCircle" onKeyReleased="#addCircle" prefHeight="31.0" prefWidth="97.0" />
+            <Label text="Edge" />
+            <TextField fx:id="edgeData" />
+            <Button mnemonicParsing="false" onAction="#addArc" text="Add Edge" />
+            <Region prefHeight="153.0" prefWidth="160.0" />
+            <Button mnemonicParsing="false" onAction="#solveScene" text="Solve" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Emoji" size="21.0" />
+               </font>
+            </Button>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <Pane fx:id="pane">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Pane>
+         </content></ScrollPane>
+   </center>
+</BorderPane>
