@@ -53,8 +53,13 @@ public class LoopsFinder {
     }
     private void findSmallLoops(List nodes){
         for(int i=0;i<nodes.size();i++){
+            int[][]arr = (int[][])nodes.get(i);
+            if(arr[1][i]!=0){
+                String str = ""+i+"-"+i;
+                int value = arr[1][i];
+                loops.put(str,value);
+            }
             for(int j=i+1;j<nodes.size()+1;j++) {
-                int[][]arr = (int[][])nodes.get(i);
                 if(arr[0][j]*arr[1][j]!=0){
                     String str = ""+i+"-"+j+"-"+i;
                     int value = arr[0][j]*arr[1][j];
