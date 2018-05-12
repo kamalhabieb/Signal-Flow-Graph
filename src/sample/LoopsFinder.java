@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class LoopsFinder {
-    HashMap<String,Integer> loops ;
+    private HashMap<String,Integer> loops ;
 
     public LoopsFinder(HashMap<String,Integer> loops){
         this.loops = loops;
@@ -16,12 +16,12 @@ public class LoopsFinder {
     private void findBigLoops(List nodes){
         for(int initial_i=0;initial_i<nodes.size();initial_i++){
             int i = initial_i;
-            for(int initial_j=initial_i+1;initial_j<nodes.size()+1;initial_j++) {
+            for(int initial_j=initial_i+1;initial_j<nodes.size();initial_j++) {
                 int j = initial_j;
-                for (int k = initial_j+1; k <nodes.size()+1;k++){
+                for (int k = initial_j+1; k <nodes.size();k++){
                     int[][] array = (int[][])nodes.get(i);
                     int value = array[1][k];
-                    String str = ""+i+"-";
+                    String str = ""+(i+1)+"-";
                     Loop(nodes,i,j,k,value,str);
                 }
             }
@@ -33,7 +33,7 @@ public class LoopsFinder {
         if(j>k){return true;}
         int[][]array = (int[][]) nodes.get(i);
         value = value*array[0][j];
-        str = str+j+"-";
+        str = str+(j+1)+"-";
         if(j==k&&value!=0){
             str = str+str.charAt(0);
             loops.put(str,value);
@@ -55,13 +55,13 @@ public class LoopsFinder {
         for(int i=0;i<nodes.size();i++){
             int[][]arr = (int[][])nodes.get(i);
             if(arr[1][i]!=0){
-                String str = ""+i+"-"+i;
+                String str = ""+(i+1)+"-"+(i+1);
                 int value = arr[1][i];
                 loops.put(str,value);
             }
-            for(int j=i+1;j<nodes.size()+1;j++) {
+            for(int j=i+1;j<nodes.size();j++) {
                 if(arr[0][j]*arr[1][j]!=0){
-                    String str = ""+i+"-"+j+"-"+i;
+                    String str = ""+(i+1)+"-"+(j+1)+"-"+(i+1);
                     int value = arr[0][j]*arr[1][j];
                     loops.put(str,value);
                 }
